@@ -13,13 +13,23 @@ var core_1 = require("@angular/core");
 var book_1 = require("../Classes/book");
 var BookDetailsComponent = (function () {
     function BookDetailsComponent() {
+        // a event that triggers outside ( BookDetailsComponent is child) [ trigger = desencadenar ]
+        this.onDelete = new core_1.EventEmitter();
     }
+    // Active the event using the method emit()
+    BookDetailsComponent.prototype.deleteBook = function () {
+        this.onDelete.emit(this.book.isbn);
+    };
     return BookDetailsComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", book_1.Book)
 ], BookDetailsComponent.prototype, "book", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], BookDetailsComponent.prototype, "onDelete", void 0);
 BookDetailsComponent = __decorate([
     core_1.Component({
         selector: 'book-details',

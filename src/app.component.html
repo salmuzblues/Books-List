@@ -1,4 +1,4 @@
-<div class="container">
+<div class="app-container">
   <h3 class="title">Books List</h3>
 <div class="border-divider"></div>
   <div class="row">
@@ -20,7 +20,7 @@
    </div>
     <!-- final col-xs-3 -->
     <div class="col-md-9">
-  <book-details [book]="selectedBook"></book-details>
+  <book-details [book]="selectedBook" (onDelete)="deleteBook($event)"></book-details>
     </div>
   </div>
 </div>

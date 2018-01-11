@@ -20,6 +20,12 @@ var AppComponent = (function () {
         var selectedBook = this.booksList.filter(function (book) { return book.isbn === isbn; });
         return this.selectedBook = selectedBook[0];
     };
+    // this Method is going to delete all information of book from booksList with number Isbn
+    // this parameter isbn is form the actual book.
+    AppComponent.prototype.deleteBook = function (isbn) {
+        this.selectedBook = null;
+        this.booksList = this.booksList.filter(function (book) { return book.isbn !== isbn; });
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
